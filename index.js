@@ -1,5 +1,5 @@
 const API_KEY = "51401bfb057db09e748ed75e801f79c6";
-const geo_API_URL = "http://api.openweathermap.org/geo/1.0/direct?q=";
+const geo_API_URL = "https://api.openweathermap.org/geo/1.0/direct?q=";
 const weatherAPI_URL = "https://api.openweathermap.org/data/2.5/weather?"
 
 let latitude, longitude;
