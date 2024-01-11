@@ -8,6 +8,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300&display=swap" rel="stylesheet">
     <script defer src="index.js"></script>
+    <script>
+        window.page1=true;
+        window.page2=false;
+        </script>
     <title>Logan's Weather App</title>
 </head>
 <body>
@@ -31,6 +35,14 @@
                     <h3>Humidity</h3>
                     <p>Loading...</p>
                 </div>
+                <div>
+                    <h3>Local Time</h3>
+                    <p class="local-time">Loading...</p>
+                </div>
+            </div>
+            <div class="page-selector">
+                <p>Weather</p>
+                <a class="link" href="timeConvert.html">Time Converter</a>
             </div>
         </div>    
     </div>
