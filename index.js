@@ -39,6 +39,9 @@ async function getTime(city) {
     hour = hour - 12;
   } else {
     Is_AM=true;
+    if (hour==0) {
+      hour=12;
+    }
   }
   let twelve_hr_time = hour + ":" + minute + (Is_AM ? "am" : "pm");
   document.querySelector(".local-time").innerHTML = twelve_hr_time;
