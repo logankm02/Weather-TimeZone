@@ -2,8 +2,8 @@ const API_KEY = "51401bfb057db09e748ed75e801f79c6";
 const geo_API_URL = "https://api.openweathermap.org/geo/1.0/direct?q=";
 const weatherAPI_URL = "https://api.openweathermap.org/data/2.5/weather?"
 const timeAPI_KEY = "1IKXPPTNEWI8"
-const timeAPI_URL = "http://api.timezonedb.com/v2.1/get-time-zone?key="
-const timeConvertAPI_URL = "http://api.timezonedb.com/v2.1/convert-time-zone?key="
+const timeAPI_URL = "https://api.timezonedb.com/v2.1/get-time-zone?key="
+const timeConvertAPI_URL = "https://api.timezonedb.com/v2.1/convert-time-zone?key="
 
 let latitude, longitude;
 let fromTimeZone, toTimeZone;
@@ -130,6 +130,8 @@ async function convertTime(fromCity, time, toCity) {
     var DayAfter = (constant_date.getDay() < date.getDay());
     document.querySelector(".final-time").innerHTML = hour + ":" + date.getMinutes().toString().padStart(2, '0') + (Is_AM ? "am" : "pm")
     + (DayBefore ? " the day before" : "") + (DayAfter ? " the next day" : "");
+    DayBefore=false;
+    DayAfter=false;
   })
 
   var imageURL = "https://source.unsplash.com/1600x900/?" + toCity;
