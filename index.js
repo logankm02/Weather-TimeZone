@@ -116,18 +116,28 @@ async function convertTime(fromCity, time, toCity) {
   dataPromise
   .then(data => {
     var date = new Date(data.toTimestamp*1000);
-    console.log(data);
-    console.log(date.getHours() + ":" + date.getMinutes());
+    // console.log(data);
+    // console.log(date.getHours() + ":" + date.getMinutes());
     hour = date.getHours();
-    console.log(hour);
+    // console.log(hour);
     if (hour > 12) {
       Is_AM = false;
       hour = hour - 12;
     } else {
       Is_AM=true;
     }
-    var DayBefore = (constant_date.getDay() > date.getDay());
-    var DayAfter = (constant_date.getDay() < date.getDay());
+    console.log("Date at source: " + constant_date);
+    console.log(constant_date.getDay());
+    console.log("Date at destination: " + date);
+    console.log(date.getDay());
+    var DayBefore = (constant_date.getDay() == date.getDay() + 1);
+    if (!DayBefore) {
+      var DayBefore = (constant_date.getDay() == 0 && date.getDay() == 6);
+    }
+    var DayAfter = (constant_date.getDay() == date.getDay() - 1);
+    if (!DayAfter) {
+      var DayAfter = (constant_date.getDay() == 6 && date.getDay() == 0);
+    }
     document.querySelector(".final-time").innerHTML = hour + ":" + date.getMinutes().toString().padStart(2, '0') + (Is_AM ? "am" : "pm")
     + (DayBefore ? " the day before" : "") + (DayAfter ? " the next day" : "");
     DayBefore=false;
